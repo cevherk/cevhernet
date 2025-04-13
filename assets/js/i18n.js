@@ -4,14 +4,20 @@ const translations = {
         // Navigation
         about: "About",
         experience: "Experience",
+        education: "Education",
         skills: "Skills",
         projects: "Projects",
         
         // Section Titles
         aboutTitle: "About Me",
         experienceTitle: "Experience",
+        educationTitle: "Education",
         skillsTitle: "Skills",
         projectsTitle: "Projects",
+        
+        // Education
+        bachelorDegree: "Bachelor of Industrial Engineering",
+        educationDesc: "Studied Business Software planning, coordination, and efficiency. Worked with various industries on launching efficient IT Systems.",
         
         // Footer
         copyright: "All rights reserved."
@@ -20,14 +26,20 @@ const translations = {
         // Navigation
         about: "Hakkımda",
         experience: "Deneyim",
+        education: "Eğitim",
         skills: "Yetenekler",
         projects: "Projeler",
         
         // Section Titles
         aboutTitle: "Hakkımda",
         experienceTitle: "Deneyim",
+        educationTitle: "Eğitim",
         skillsTitle: "Yetenekler",
         projectsTitle: "Projeler",
+        
+        // Education
+        bachelorDegree: "Endüstri Mühendisliği Lisans",
+        educationDesc: "İş yazılımı planlaması, koordinasyonu ve verimliliği üzerine eğitim aldım. Farklı sektörlerde, verimli BT sistemlerinin hayata geçirilmesi üzerine çalıştım.",
         
         // Footer
         copyright: "Tüm hakları saklıdır."
