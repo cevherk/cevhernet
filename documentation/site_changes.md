@@ -1,6 +1,6 @@
 # CevherNet Site Değişiklikleri
 
-## 📅 Tarih: 30 Haziran 2024
+## 📅 Tarih: 13 Nisan 2025
 
 ## 🔄 Yapılan Değişiklikler
 
