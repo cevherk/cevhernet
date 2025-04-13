@@ -464,7 +464,7 @@ body {
 
 /* Footer */
 .footer {
-    background-color: var(--card-background);
+    background-color: var(--background-alt);
     padding: 2rem 0;
     text-align: center;
     color: var(--light-text);
