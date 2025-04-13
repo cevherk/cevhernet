@@ -298,6 +298,12 @@ function populateProjects() {
 
 // Initialize content when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Update current year in footer
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
+    
     // Check URL parameters for language
     const urlParams = new URLSearchParams(window.location.search);
     const langParam = urlParams.get('lang');
@@ -374,4 +380,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-}); 
+    
+    // Update all accessibility labels based on language
+    updateAccessibilityLabels();
+});
+
+// Update all accessibility labels based on language
+function updateAccessibilityLabels() {
+    const lang = getCurrentLanguage();
+    
+    // Update aria-labels
+    document.querySelector('.menu-toggle').setAttribute('aria-label', translations[lang].menuToggle || 'Toggle Menu');
+    document.querySelector('.lang-switch').setAttribute('aria-label', translations[lang].languageToggle || 'Change Language');
+    document.querySelector('.theme-switch').setAttribute('aria-label', translations[lang].themeToggle || 'Toggle Theme');
+    document.querySelector('.logo a').setAttribute('aria-label', translations[lang].homeLink || 'Home');
+} 

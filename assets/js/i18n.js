@@ -8,9 +8,16 @@ const translations = {
         skills: "Skills",
         projects: "Projects",
         contact: "Contact",
+        blog: "Blog",
         
         // Accessibility
         skipToContent: "Skip to Content",
+        
+        // Aria Labels
+        menuToggle: "Toggle Menu",
+        languageToggle: "Change Language",
+        themeToggle: "Toggle Theme",
+        homeLink: "Home",
         
         // Section Titles
         aboutTitle: "About Me",
@@ -19,6 +26,13 @@ const translations = {
         skillsTitle: "Skills",
         projectsTitle: "Projects",
         contactTitle: "Contact",
+        
+        // Hero Section
+        jobTitle: "Software Test Engineer",
+        shortBio: "Dynamic and detail-oriented Software Test Engineer with 4+ years of experience.",
+        
+        // About Section
+        aboutText: "Dynamic and detail-oriented Software Test Engineer with 4+ years of experience in manual and automation testing (Selenium), API testing (Postman, Rest Assured), and data flow verification (PostgreSQL). Skilled in test process planning, event storming analysis (Couchbase, Elasticsearch, Apache Kafka), and working with Agile methodologies (Scrum, Kanban).",
         
         // Education
         bachelorDegree: "Bachelor of Industrial Engineering",
@@ -38,9 +52,16 @@ const translations = {
         skills: "Yetenekler",
         projects: "Projeler",
         contact: "İletişim",
+        blog: "Blog",
         
         // Accessibility
         skipToContent: "İçeriğe geç",
+        
+        // Aria Labels
+        menuToggle: "Menüyü Aç/Kapat",
+        languageToggle: "Dil Değiştir",
+        themeToggle: "Tema Değiştir",
+        homeLink: "Ana Sayfa",
         
         // Section Titles
         aboutTitle: "Hakkımda",
@@ -49,6 +70,13 @@ const translations = {
         skillsTitle: "Yetenekler",
         projectsTitle: "Projeler",
         contactTitle: "İletişim",
+        
+        // Hero Section
+        jobTitle: "Yazılım Test Mühendisi",
+        shortBio: "4+ yıllık deneyime sahip, dinamik ve detay odaklı bir Yazılım Test Mühendisi.",
+        
+        // About Section
+        aboutText: "4+ yıllık deneyime sahip, dinamik ve detay odaklı bir Yazılım Test Mühendisiyim. Manuel ve otomasyon testleri (Selenium), API testleri (Postman, Rest Assured) ve veri akış doğrulama (PostgreSQL) konularında uzmanım. Test süreçlerinin planlanması, event storming analizi (Couchbase, Elasticsearch, Apache Kafka) ve Agile metodolojileri (Scrum, Kanban) ile çalışma konusunda güçlü bir deneyime sahibim.",
         
         // Education
         bachelorDegree: "Endüstri Mühendisliği Lisans",
@@ -101,6 +129,11 @@ function toggleLanguage() {
     
     // Update all translations
     updateTranslations();
+    
+    // Update accessibility labels
+    if (typeof updateAccessibilityLabels === 'function') {
+        updateAccessibilityLabels();
+    }
     
     // Update content dynamically
     if (typeof populateTimeline === 'function') populateTimeline();
