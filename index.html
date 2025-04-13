@@ -3,41 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="İbrahim Cevher Kabadayı - Software Test Engineer" lang="en">
-    <meta name="description" content="İbrahim Cevher Kabadayı - Yazılım Test Mühendisi" lang="tr">
-    <meta name="keywords" content="software testing, test automation, QA, quality assurance, Selenium, Rest Assured, API testing">
     
-    <title>İbrahim Cevher Kabadayı | Portfolio</title>
+    <!-- SEO Meta Etiketleri -->
+    <title>İbrahim Cevher Kabadayı | Yazılım Test Mühendisi | Portfolio</title>
+    <meta name="description" content="İbrahim Cevher Kabadayı, 4+ yıllık deneyime sahip, Selenium, Rest Assured ve Postman ile uzmanlaşmış bir Yazılım Test Mühendisi." lang="tr">
+    <meta name="description" content="İbrahim Cevher Kabadayı, a Software Test Engineer with 4+ years of experience specializing in Selenium, Rest Assured, and Postman." lang="en">
+    <meta name="keywords" content="software testing, test automation, QA, quality assurance, Selenium, Rest Assured, API testing, İbrahim Cevher Kabadayı, yazılım test mühendisi, test otomasyonu">
+    <meta name="author" content="İbrahim Cevher Kabadayı">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cevher.net">
+    
+    <!-- Dil Alternatifleri -->
+    <link rel="alternate" hreflang="tr" href="https://cevher.net?lang=tr">
+    <link rel="alternate" hreflang="en" href="https://cevher.net?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://cevher.net">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cevher.net/">
+    <meta property="og:title" content="İbrahim Cevher Kabadayı | Yazılım Test Mühendisi">
+    <meta property="og:description" content="4+ yıllık deneyime sahip, dinamik ve detay odaklı bir Yazılım Test Mühendisi.">
+    <meta property="og:image" content="https://cevher.net/assets/images/profile/profile-photo.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cevher.net/">
+    <meta property="twitter:title" content="İbrahim Cevher Kabadayı | Yazılım Test Mühendisi">
+    <meta property="twitter:description" content="4+ yıllık deneyime sahip, dinamik ve detay odaklı bir Yazılım Test Mühendisi.">
+    <meta property="twitter:image" content="https://cevher.net/assets/images/profile/profile-photo.jpg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Structured Data / Schema.org - Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "İbrahim Cevher Kabadayı",
+      "url": "https://cevher.net",
+      "image": "https://cevher.net/assets/images/profile/profile-photo.jpg",
+      "sameAs": [
+        "https://linkedin.com/in/ickabadayi",
+        "https://cevher.org"
+      ],
+      "jobTitle": "Yazılım Test Mühendisi",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Finartz Bilgi Teknolojileri A.Ş."
+      },
+      "description": "4+ yıllık deneyime sahip, dinamik ve detay odaklı bir Yazılım Test Mühendisi."
+    }
+    </script>
 </head>
 <body class="light-mode">
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
             <div class="logo">
-                <a href="/">İCK</a>
+                <a href="/" aria-label="Ana Sayfa">İCK</a>
             </div>
             <div class="nav-links">
                 <a href="#about" class="nav-link" data-i18n="about">Hakkımda</a>
                 <a href="#experience" class="nav-link" data-i18n="experience">Deneyim</a>
                 <a href="#skills" class="nav-link" data-i18n="skills">Yetenekler</a>
                 <a href="#projects" class="nav-link" data-i18n="projects">Projeler</a>
-                <a href="https://cevher.org" class="nav-link blog-link" target="_blank">Blog</a>
+                <a href="https://cevher.org" class="nav-link blog-link" target="_blank" rel="noopener">Blog</a>
             </div>
             <div class="nav-controls">
-                <button class="lang-switch" onclick="toggleLanguage()">
+                <button class="lang-switch" onclick="toggleLanguage()" aria-label="Dil Değiştir">
                     <span class="lang-text">TR</span>
                 </button>
-                <button class="theme-switch" onclick="toggleTheme()">
+                <button class="theme-switch" onclick="toggleTheme()" aria-label="Tema Değiştir">
                     <i class="fas fa-sun"></i>
                 </button>
             </div>
@@ -53,21 +102,21 @@
                     <h2 class="title">Yazılım Test Mühendisi</h2>
                     <p class="description">4+ yıllık deneyime sahip, dinamik ve detay odaklı bir Yazılım Test Mühendisi.</p>
                     <div class="social-links">
-                        <a href="https://linkedin.com/in/ickabadayi" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/ickabadayi" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn Profili">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
                         </a>
-                        <a href="mailto:ickabadayi@gmail.com" class="social-link">
-                            <i class="fas fa-envelope"></i>
+                        <a href="mailto:ickabadayi@gmail.com" class="social-link" aria-label="E-posta Gönder">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
                         </a>
-                        <a href="https://cevher.org" target="_blank" class="social-link">
-                            <i class="fas fa-blog"></i>
+                        <a href="https://cevher.org" target="_blank" rel="noopener" class="social-link" aria-label="Blog Sayfası">
+                            <i class="fas fa-blog" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
                 <div class="hero-image">
                     <!-- Profile image -->
                     <div class="profile-placeholder">
-                        <img src="assets/images/profile/profile-photo.jpg" alt="İbrahim Cevher Kabadayı" onError="this.style.display='none'">
+                        <img src="assets/images/profile/profile-photo.jpg" alt="İbrahim Cevher Kabadayı - Yazılım Test Mühendisi" onError="this.style.display='none'">
                     </div>
                 </div>
             </div>
@@ -121,11 +170,16 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2024 İbrahim Cevher Kabadayı. Tüm hakları saklıdır.</p>
+            <p>
+                <a href="https://linkedin.com/in/ickabadayi" target="_blank" rel="noopener" aria-label="LinkedIn Profili">LinkedIn</a> | 
+                <a href="https://cevher.org" target="_blank" rel="noopener" aria-label="Blog Sayfası">Blog</a> | 
+                <a href="mailto:ickabadayi@gmail.com" aria-label="E-posta Gönder">İletişim</a>
+            </p>
         </div>
     </footer>
 
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/i18n.js" defer></script>
 </body>
 </html> 
