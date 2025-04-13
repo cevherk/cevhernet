@@ -3,7 +3,7 @@
     --accent-color: #3498DB;
     --accent-hover: #2980b9;
     --background-color: #F5F6F7;
-    --background-alt: #EEF1F3;
+    --background-alt: #EAEEF0;
     --text-color: #333333;
     --light-text: #555555;
     --border-color: #E1E4E8;
@@ -18,7 +18,7 @@
     --accent-color: #2D3E50;
     --accent-hover: #1C2A38;
     --background-color: #1A1A1A;
-    --background-alt: #252525;
+    --background-alt: #222222;
     --text-color: #FFFFFF;
     --light-text: #DDDDDD;
     --border-color: #333333;
@@ -212,6 +212,15 @@ body {
 /* Section Styles */
 .section {
     padding: 80px 0;
+}
+
+/* Alternating section backgrounds */
+.section:nth-of-type(even) {
+    background-color: var(--background-alt);
+}
+
+.section:nth-of-type(odd) {
+    background-color: var(--card-background);
 }
 
 .section-title {
@@ -410,7 +419,7 @@ body {
 
 /* Contact Section */
 #contact {
-    background-color: var(--background-alt);
+    /* Removed specific background-color to use alternating colors */
 }
 
 .contact-container {
