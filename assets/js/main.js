@@ -16,6 +16,12 @@ function toggleTheme() {
     }
 }
 
+// Mobile Menu Toggle
+function toggleMobileMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+}
+
 // Experience Timeline Data
 const experiences = {
     en: [
@@ -306,9 +312,28 @@ document.addEventListener('DOMContentLoaded', () => {
     populateProjects();
     
     // Add event listener for mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMobileMenu);
+    }
+    
+    // Close menu when clicking outside
     document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('menu-toggle')) {
-            document.querySelector('.nav-links').classList.toggle('active');
+        const navLinks = document.querySelector('.nav-links');
+        const menuToggle = document.querySelector('.menu-toggle');
+        
+        if (navLinks.classList.contains('active') && 
+            !navLinks.contains(event.target) && 
+            !menuToggle.contains(event.target)) {
+            navLinks.classList.remove('active');
         }
+    });
+    
+    // Close menu when clicking on a nav link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.remove('active');
+        });
     });
 }); 

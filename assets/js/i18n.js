@@ -14,10 +14,14 @@ const translations = {
         educationTitle: "Education",
         skillsTitle: "Skills",
         projectsTitle: "Projects",
+        contactTitle: "Contact",
         
         // Education
         bachelorDegree: "Bachelor of Industrial Engineering",
         educationDesc: "Studied Business Software planning, coordination, and efficiency. Worked with various industries on launching efficient IT Systems.",
+        
+        // Contact
+        contactText: "You can reach me via the following contact information.",
         
         // Footer
         copyright: "All rights reserved."
@@ -36,10 +40,14 @@ const translations = {
         educationTitle: "Eğitim",
         skillsTitle: "Yetenekler",
         projectsTitle: "Projeler",
+        contactTitle: "İletişim",
         
         // Education
         bachelorDegree: "Endüstri Mühendisliği Lisans",
         educationDesc: "İş yazılımı planlaması, koordinasyonu ve verimliliği üzerine eğitim aldım. Farklı sektörlerde, verimli BT sistemlerinin hayata geçirilmesi üzerine çalıştım.",
+        
+        // Contact
+        contactText: "Benimle iletişime geçmek için aşağıdaki iletişim bilgilerini kullanabilirsiniz.",
         
         // Footer
         copyright: "Tüm hakları saklıdır."
