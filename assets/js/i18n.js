@@ -7,6 +7,10 @@ const translations = {
         education: "Education",
         skills: "Skills",
         projects: "Projects",
+        contact: "Contact",
+        
+        // Accessibility
+        skipToContent: "Skip to Content",
         
         // Section Titles
         aboutTitle: "About Me",
@@ -33,6 +37,10 @@ const translations = {
         education: "Eğitim",
         skills: "Yetenekler",
         projects: "Projeler",
+        contact: "İletişim",
+        
+        // Accessibility
+        skipToContent: "İçeriğe geç",
         
         // Section Titles
         aboutTitle: "Hakkımda",
@@ -54,6 +62,19 @@ const translations = {
     }
 };
 
+// Check URL for language parameter
+function checkUrlLanguage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    
+    if (langParam && (langParam === 'en' || langParam === 'tr')) {
+        localStorage.setItem('language', langParam);
+        return langParam;
+    }
+    
+    return localStorage.getItem('language') || 'tr';
+}
+
 // Get current language
 function getCurrentLanguage() {
     return localStorage.getItem('language') || 'tr';
@@ -64,64 +85,53 @@ function toggleLanguage() {
     const currentLang = getCurrentLanguage();
     const newLang = currentLang === 'tr' ? 'en' : 'tr';
     
-    // Store language preference
+    // Update local storage
     localStorage.setItem('language', newLang);
     
-    // Update button text
-    const langBtn = document.querySelector('.lang-switch .lang-text');
-    langBtn.textContent = newLang.toUpperCase();
+    // Update URL parameter without page reload
+    const url = new URL(window.location);
+    url.searchParams.set('lang', newLang);
+    window.history.pushState({}, '', url);
     
-    // Update content
-    updateLanguageContent(newLang);
+    // Update UI
+    document.querySelector('.lang-text').textContent = newLang.toUpperCase();
     
-    // Repopulate dynamic content
+    // Update HTML lang attribute
+    document.documentElement.lang = newLang;
+    
+    // Update all translations
+    updateTranslations();
+    
+    // Update content dynamically
     if (typeof populateTimeline === 'function') populateTimeline();
     if (typeof populateSkills === 'function') populateSkills();
     if (typeof populateProjects === 'function') populateProjects();
 }
 
-// Update static content based on language
-function updateLanguageContent(lang) {
-    // Update navigation links
-    document.querySelectorAll('[data-i18n]').forEach(element => {
+// Update all translations
+function updateTranslations() {
+    const lang = getCurrentLanguage();
+    const elements = document.querySelectorAll('[data-i18n]');
+    
+    elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
-        if (translations[lang][key]) {
+        if (translations[lang] && translations[lang][key]) {
             element.textContent = translations[lang][key];
         }
     });
-    
-    // Update hero section
-    const heroTitle = document.querySelector('.title');
-    if (lang === 'en') {
-        heroTitle.textContent = 'Software Test Engineer';
-        document.querySelector('.description').textContent = 'Dynamic and detail-oriented Software Test Engineer with 4+ years of experience in manual and automation testing.';
-    } else {
-        heroTitle.textContent = 'Yazılım Test Mühendisi';
-        document.querySelector('.description').textContent = '4+ yıllık deneyime sahip, dinamik ve detay odaklı bir Yazılım Test Mühendisi.';
-    }
-    
-    // Update about section
-    if (lang === 'en') {
-        document.querySelector('.about-text').textContent = 'Dynamic and detail-oriented Software Test Engineer with 4+ years of experience in manual and automation testing (Selenium), API testing (Postman, Rest Assured), and data flow verification (PostgreSQL). Skilled in test process planning, event storming analysis (Couchbase, Elasticsearch, Apache Kafka), and working with Agile methodologies (Scrum, Kanban).';
-    } else {
-        document.querySelector('.about-text').textContent = '4+ yıllık deneyime sahip, dinamik ve detay odaklı bir Yazılım Test Mühendisiyim. Manuel ve otomasyon testleri (Selenium), API testleri (Postman, Rest Assured) ve veri akış doğrulama (PostgreSQL) konularında uzmanım. Test süreçlerinin planlanması, event storming analizi (Couchbase, Elasticsearch, Apache Kafka) ve Agile metodolojileri (Scrum, Kanban) ile çalışma konusunda güçlü bir deneyime sahibim.';
-    }
-    
-    // Update footer
-    document.querySelector('.footer p').textContent = 
-        `© ${new Date().getFullYear()} İbrahim Cevher Kabadayı. ${translations[lang].copyright}`;
 }
 
 // Initialize language on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = getCurrentLanguage();
+document.addEventListener('DOMContentLoaded', function() {
+    // Check URL for language parameter
+    const urlLang = checkUrlLanguage();
     
-    // Set initial button text
-    const langBtn = document.querySelector('.lang-switch .lang-text');
-    langBtn.textContent = savedLang.toUpperCase();
+    // Set the HTML lang attribute
+    document.documentElement.lang = urlLang;
     
-    // Update content if not the default language (default is Turkish)
-    if (savedLang === 'en') {
-        updateLanguageContent('en');
-    }
+    // Update UI
+    document.querySelector('.lang-text').textContent = urlLang.toUpperCase();
+    
+    // Update translations
+    updateTranslations();
 }); 

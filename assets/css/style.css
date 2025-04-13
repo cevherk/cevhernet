@@ -5,7 +5,7 @@
     --background-color: #F5F6F7;
     --background-alt: #EEF1F3;
     --text-color: #333333;
-    --light-text: #666666;
+    --light-text: #555555;
     --border-color: #E1E4E8;
     --card-background: #FFFFFF;
     --shadow-color: rgba(0, 0, 0, 0.1);
@@ -20,7 +20,7 @@
     --background-color: #1A1A1A;
     --background-alt: #252525;
     --text-color: #FFFFFF;
-    --light-text: #CCCCCC;
+    --light-text: #DDDDDD;
     --border-color: #333333;
     --card-background: #2D2D2D;
     --shadow-color: rgba(0, 0, 0, 0.3);
@@ -531,4 +531,54 @@ body {
     .contact-info {
         width: 100%;
     }
+}
+
+/* Global focus styles for keyboard navigation */
+:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Skip to content link for accessibility */
+.skip-to-content {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.skip-to-content:focus {
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+/* Improved link contrast */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+a:hover, a:focus {
+    color: var(--accent-hover);
+    text-decoration: underline;
 } 

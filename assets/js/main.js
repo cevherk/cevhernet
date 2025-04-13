@@ -296,22 +296,35 @@ function populateProjects() {
     });
 }
 
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-    // Set initial theme
+// Initialize content when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Check URL parameters for language
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    
+    if (langParam && (langParam === 'en' || langParam === 'tr')) {
+        localStorage.setItem('language', langParam);
+        document.documentElement.lang = langParam;
+    } else {
+        // Use saved language or default to Turkish
+        const savedLang = localStorage.getItem('language') || 'tr';
+        document.documentElement.lang = savedLang;
+    }
+    
+    // Set theme based on saved preference or default to light
     const savedTheme = localStorage.getItem('theme') || 'light';
     if (savedTheme === 'dark') {
-        document.body.classList.remove('light-mode');
         document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
         document.querySelector('.theme-switch i').classList.replace('fa-sun', 'fa-moon');
     }
     
-    // Populate sections
+    // Populate content based on the selected language
     populateTimeline();
     populateSkills();
     populateProjects();
     
-    // Add event listener for mobile menu toggle
+    // Add event listener for mobile menu
     const menuToggle = document.querySelector('.menu-toggle');
     if (menuToggle) {
         menuToggle.addEventListener('click', toggleMobileMenu);
@@ -334,6 +347,31 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             document.querySelector('.nav-links').classList.remove('active');
+        });
+    });
+    
+    // Add keyboard navigation to enhance accessibility
+    document.addEventListener('keydown', function(e) {
+        // Close mobile menu with Escape key
+        if (e.key === 'Escape' && document.querySelector('.nav-links.active')) {
+            document.querySelector('.nav-links').classList.remove('active');
+        }
+    });
+    
+    // Add smooth scrolling to anchor links
+    document.querySelectorAll('a[href^="#"]:not(.skip-to-content)').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70, // Offset for header
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 }); 
