@@ -47,7 +47,8 @@ const translations = {
         // Cookie Consent
         cookieConsentText: "We use local storage to save your session preferences (theme, language). This information is stored only in your browser and is not shared with third parties.",
         acceptCookies: "Accept",
-        rejectCookies: "Reject"
+        rejectCookies: "Reject",
+        cookieTitle: "Cookie Notice"
     },
     tr: {
         // Navigation
@@ -96,7 +97,8 @@ const translations = {
         // Cookie Consent
         cookieConsentText: "Bu sitede oturum tercihlerinizi (tema, dil) saklamak için yerel depolama kullanıyoruz. Bu bilgiler sadece sizin tarayıcınızda saklanır ve üçüncü taraflarla paylaşılmaz.",
         acceptCookies: "Kabul Et",
-        rejectCookies: "Reddet"
+        rejectCookies: "Reddet",
+        cookieTitle: "Çerez Bildirimi"
     }
 };
 
