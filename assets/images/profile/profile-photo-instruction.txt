@@ -1,0 +1,12 @@
+Bu klasöre "profile-photo.jpg" adında profil fotoğrafınızı yükleyin.
+İdeal boyutlar: 600x600 piksel veya kare formatında bir resim.
+Dosya boyutu 500KB'dan küçük olmalıdır.
+
+Profil fotoğrafınızı ekledikten sonra, HTML dosyasında şu değişikliği yapmanız gerekecek:
+1. index.html dosyasını açın
+2. "<div class="profile-placeholder"></div>" satırını bulun
+3. Bu satırı şununla değiştirin:
+   <div class="profile-placeholder">
+       <img src="assets/images/profile/profile-photo.jpg" alt="İbrahim Cevher Kabadayı">
+   </div>
+4. Değişiklikleri kaydedin ve GitHub'a push edin.

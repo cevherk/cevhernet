@@ -1,0 +1,8 @@
+Bu klasöre "favicon.ico" adında bir favicon yükleyin.
+Favicon, tarayıcı sekmesinde ve yer imlerinde görünen küçük simgedir.
+
+Favicon oluşturmak için:
+1. Çevrimiçi bir favicon oluşturma aracı kullanabilirsiniz (örn: favicon.io, realfavicongenerator.net)
+2. Oluşturduğunuz favicon.ico dosyasını bu klasöre yükleyin
+3. Dosya boyutu 100KB'dan küçük olmalıdır.
+4. Faviconu index.html dosyasında zaten tanımladık, bu nedenle dosyayı eklemeniz yeterlidir.
