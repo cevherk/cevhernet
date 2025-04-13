@@ -4,6 +4,7 @@
     --accent-hover: #2980b9;
     --background-color: #F5F6F7;
     --background-alt: #EAEEF0;
+    --about-background: #E8F4FD; /* Açık mavi tonu (accent-color ile uyumlu) */
     --text-color: #333333;
     --light-text: #555555;
     --border-color: #E1E4E8;
@@ -19,6 +20,7 @@
     --accent-hover: #1C2A38;
     --background-color: #1A1A1A;
     --background-alt: #222222;
+    --about-background: #1E3042; /* Koyu mavi tonu (accent-color ile uyumlu) */
     --text-color: #FFFFFF;
     --light-text: #DDDDDD;
     --border-color: #333333;
@@ -590,4 +592,26 @@ a {
 a:hover, a:focus {
     color: var(--accent-hover);
     text-decoration: underline;
+}
+
+/* About Section Special Styling */
+#about {
+    background-color: var(--about-background);
+}
+
+#about .section-title {
+    margin-bottom: 2.5rem;
+}
+
+#about .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px var(--shadow-color);
+}
+
+#about .about-text {
+    line-height: 1.8;
 } 
