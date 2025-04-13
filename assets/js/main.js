@@ -6,12 +6,12 @@ function toggleTheme() {
     if (currentMode === 'light-mode') {
         body.classList.remove('light-mode');
         body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
+        safelySetItem('theme', 'dark');
         document.querySelector('.theme-switch i').classList.replace('fa-sun', 'fa-moon');
     } else {
         body.classList.remove('dark-mode');
         body.classList.add('light-mode');
-        localStorage.setItem('theme', 'light');
+        safelySetItem('theme', 'light');
         document.querySelector('.theme-switch i').classList.replace('fa-moon', 'fa-sun');
     }
 }
@@ -296,6 +296,75 @@ function populateProjects() {
     });
 }
 
+// Cookie Consent Manager
+function handleCookieConsent() {
+    const cookieConsent = document.getElementById('cookie-consent');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const rejectBtn = document.getElementById('reject-cookies');
+    
+    // Check if user has already made a choice
+    const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+    
+    // If no choice has been made yet, show the consent dialog
+    if (cookiesAccepted === null) {
+        setTimeout(() => {
+            cookieConsent.classList.add('show');
+        }, 1000);
+    }
+    
+    // Handle accept button click
+    acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        cookieConsent.classList.remove('show');
+        
+        // User accepted - we can keep the localStorage values
+        // No need to do anything else as localStorage is already in use
+    });
+    
+    // Handle reject button click
+    rejectBtn.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'false');
+        cookieConsent.classList.remove('show');
+        
+        // User rejected - clear all localStorage except the consent choice
+        const cookiesAcceptedValue = localStorage.getItem('cookiesAccepted');
+        localStorage.clear();
+        localStorage.setItem('cookiesAccepted', cookiesAcceptedValue);
+        
+        // Apply default theme and language settings
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+        document.documentElement.lang = 'tr';
+        document.querySelector('.lang-text').textContent = 'TR';
+        
+        // Update UI to reflect default settings
+        updateTranslations();
+        populateTimeline();
+        populateSkills();
+        populateProjects();
+        updateAccessibilityLabels();
+        document.querySelector('.theme-switch i').classList.replace('fa-moon', 'fa-sun');
+    });
+}
+
+// Cookie Check Before Storage Operations
+function safelyGetItem(key, defaultValue = null) {
+    // Only return stored value if cookies were accepted
+    const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+    if (cookiesAccepted === 'true') {
+        return localStorage.getItem(key) || defaultValue;
+    }
+    return defaultValue;
+}
+
+function safelySetItem(key, value) {
+    // Only store value if cookies were accepted
+    const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+    if (cookiesAccepted === 'true' || cookiesAccepted === null) {
+        localStorage.setItem(key, value);
+    }
+}
+
 // Initialize content when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Update current year in footer
@@ -383,6 +452,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update all accessibility labels based on language
     updateAccessibilityLabels();
+    
+    // Initialize Cookie Consent
+    handleCookieConsent();
 });
 
 // Update all accessibility labels based on language

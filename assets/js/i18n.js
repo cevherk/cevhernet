@@ -42,7 +42,12 @@ const translations = {
         contactText: "You can reach me via the following contact information.",
         
         // Footer
-        copyright: "All rights reserved."
+        copyright: "All rights reserved.",
+        
+        // Cookie Consent
+        cookieConsentText: "We use local storage to save your session preferences (theme, language). This information is stored only in your browser and is not shared with third parties.",
+        acceptCookies: "Accept",
+        rejectCookies: "Reject"
     },
     tr: {
         // Navigation
@@ -86,7 +91,12 @@ const translations = {
         contactText: "Benimle iletişime geçmek için aşağıdaki iletişim bilgilerini kullanabilirsiniz.",
         
         // Footer
-        copyright: "Tüm hakları saklıdır."
+        copyright: "Tüm hakları saklıdır.",
+        
+        // Cookie Consent
+        cookieConsentText: "Bu sitede oturum tercihlerinizi (tema, dil) saklamak için yerel depolama kullanıyoruz. Bu bilgiler sadece sizin tarayıcınızda saklanır ve üçüncü taraflarla paylaşılmaz.",
+        acceptCookies: "Kabul Et",
+        rejectCookies: "Reddet"
     }
 };
 
@@ -96,16 +106,16 @@ function checkUrlLanguage() {
     const langParam = urlParams.get('lang');
     
     if (langParam && (langParam === 'en' || langParam === 'tr')) {
-        localStorage.setItem('language', langParam);
+        safelySetItem('language', langParam);
         return langParam;
     }
     
-    return localStorage.getItem('language') || 'tr';
+    return safelyGetItem('language', 'tr');
 }
 
 // Get current language
 function getCurrentLanguage() {
-    return localStorage.getItem('language') || 'tr';
+    return safelyGetItem('language', 'tr');
 }
 
 // Toggle language
@@ -114,7 +124,7 @@ function toggleLanguage() {
     const newLang = currentLang === 'tr' ? 'en' : 'tr';
     
     // Update local storage
-    localStorage.setItem('language', newLang);
+    safelySetItem('language', newLang);
     
     // Update URL parameter without page reload
     const url = new URL(window.location);

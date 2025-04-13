@@ -21,9 +21,16 @@
 ### 3. Footer Arkaplan Rengi Değiştirildi
 - Footer arkaplan rengi beyazdan (`var(--card-background)`) griye (`var(--background-alt)`) değiştirildi
 
+### 4. Cookie Consent Eklendi
+- Kullanıcı çerez onayı için bir bildirim eklendi
+- Kullanıcı tercihleri (tema, dil) yalnızca onay verildiğinde saklanacak
+- Reddetme durumunda localStorage içeriği temizlenecek
+- Onay bildirimi için çoklu dil desteği eklendi
+
 ## 💾 Commit Geçmişi
 - "Removed form styles and updated section backgrounds to alternate gray/white"
 - "Updated footer to have gray background"
+- "Added cookie consent functionality for GDPR compliance"
 
 ## 🔍 Sonraki Adımlar
 - [ ] Yeni değişikliklerde kullanmak için bu belgeyi güncelleyin
